@@ -1,11 +1,7 @@
 import time
 
-from colorama import Back, Fore, init
+from colorama import Fore, init
 from functions import find_xpath
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 
 init(convert=True)
 

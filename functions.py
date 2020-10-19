@@ -1,15 +1,12 @@
 import random
 import string
-import sys
 import time
 
 import numpy as np
 import scipy.interpolate as si
-from colorama import Back, Fore, init
-from selenium.common.exceptions import NoSuchElementException
+from colorama import init
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -29,7 +26,7 @@ def random_user():
 
 def random_pwd():
     l=string.ascii_letters+string.digits
-    return str(random.randint(0,9))+"pwd@PROTON"+str(random.randint(0,9))
+    return str(random.randint(0,9))+"hope"+str(random.randint(0,9))
 
 def new_tab(driver,url):
     driver.execute_script('''window.open("{}","_blank");'''.format(url))
@@ -37,16 +34,16 @@ def new_tab(driver,url):
 def switch_frame(driver,xpath):
     WebDriverWait(driver,60).until(EC.frame_to_be_available_and_switch_to_it(
         (By.XPATH,xpath)))
-    time.sleep(0.5)
+    time.sleep(.4)
 
 def find_xpath(driver,xpath):
     temp=WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH,xpath)))
-    time.sleep(.5)
+    time.sleep(.4)
     return temp
 
 def find_id(driver,id):
     temp=WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.ID,id)))
-    time.sleep(.5)
+    time.sleep(.4)
     return temp
     
 def input_value(driver,xpath,value):
@@ -54,7 +51,7 @@ def input_value(driver,xpath,value):
     for i in value:
         input_box.send_keys(i)
         time.sleep(.1)
-    time.sleep(1)
+    time.sleep(.9)
 
 def calculate_move():
     points = [[6, 2], [3, 2],[0, 0], [0, 2]]
@@ -79,7 +76,7 @@ def human_move(driver,xpath,x_i,y_i):
     action=ActionChains(driver)
     action.move_to_element(startElement)
     action.perform()
-    c = 5
+    c = 4
     i = 0
     for mouse_x, mouse_y in zip(x_i, y_i):
         action.move_by_offset(mouse_x,mouse_y)

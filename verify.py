@@ -1,17 +1,16 @@
 import os
 import time
 
-from colorama import Back, Fore, init
-from functions import (calculate_move, find_xpath, human_move, input_value,
-                       new_tab, switch_frame)
-from selenium import webdriver
+from colorama import init
+from colorama import Fore
+from functions import (calculate_move, find_xpath, human_move, switch_frame)
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 init(convert=True)
 
-def verification(driver,randuser,randpwd,email):
+def verification(driver,randuser,randpwd):
     x_i,y_i=calculate_move()
     print(Fore.CYAN+"Verifying Account.......\n\n",Fore.WHITE)
     driver.switch_to.window(driver.window_handles[0])
