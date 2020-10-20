@@ -1,8 +1,9 @@
 import os
 import platform
+import threading   #WIP
 
-import Drivers as uc
-uc.install()
+#import Drivers as uc        #WIP
+#uc.install()                #WIP
 
 from colorama import init
 from selenium import webdriver
@@ -45,6 +46,5 @@ print("- . -.-. .... - .- -. .. -.-.")
 
 
 x_i, y_i = calculate_move()
-email = temp_mail(driver)
-randuser, randpwd = create_account(driver, email, x_i, y_i)
+randuser, randpwd = create_account(driver, temp_mail(driver), x_i, y_i)
 verification(driver, randuser, randpwd)
