@@ -7,7 +7,7 @@ def install(name):
 
 def main():
 
-    my_packages = ['selenium', 'colorama', 'numpy']
+    my_packages = ['selenium', 'colorama', 'numpy', 'scipy']
 
     installed_pr = [] 
     
