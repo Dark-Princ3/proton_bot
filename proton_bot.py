@@ -1,9 +1,5 @@
 import os
 import platform
-import threading   #WIP
-
-#import Drivers as uc        #WIP
-#uc.install()                #WIP
 
 from colorama import init
 from selenium import webdriver
