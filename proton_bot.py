@@ -9,10 +9,10 @@ from colorama import init
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from create_acc import create_account
-from functions import calculate_move
-from temp_gen import temp_mail
-from verify import verification
+from pack.create_acc import create_account
+from pack.functions import calculate_move
+from pack.temp_gen import temp_mail
+from pack.verify import verification
 
 init(convert = True)
 
@@ -21,7 +21,7 @@ driver_path = "default"
 
 os_name = platform.system()
 if os_name == "Linux":
-    driver_path = 'Drivers/chromedriver_linux'
+    driver_path = 'Drivers/chromedriver'
     clear_cmd = 'clear'
 
 if os_name == "Windows":
@@ -29,7 +29,7 @@ if os_name == "Windows":
     clear_cmd = 'cls'
     
 if os_name == "Darwin":
-    driver_path = 'Drivers/chromedriver_mac'
+    driver_path = 'Drivers/chromedriver'
     clear_cmd = 'clear'
     
 
