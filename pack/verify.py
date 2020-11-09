@@ -12,13 +12,16 @@ init(convert = True)
 
 def verification(driver, randuser, randpwd):
     x_i, y_i = calculate_move()
+    
     print(Fore.CYAN+"Verifying Account.......\n\n", Fore.WHITE)
+
     driver.switch_to.window(driver.window_handles[0])
     time.sleep(5)
     '''- . -.-. .... - .- -. .. -.-.'''
     print(Fore.CYAN+"Waiting for verification E-mail\n\n", Fore.WHITE)
     
     wait_email = True
+
     while wait_email == True:
         try:
             WebDriverWait(driver, 30).until(EC.visibility_of_element_located(
@@ -26,13 +29,19 @@ def verification(driver, randuser, randpwd):
             wait_email = False
         except:    
             driver.refresh()
+
     find_xpath(driver, '//*[@id = "app"]/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[2]/div/div[1]/ul/li').click()
     
     switch_frame(driver, '//*[@id = "idIframe"]')
+
     code = driver.find_element_by_tag_name("code").text
+
     print(Fore.CYAN+"Please wait\n\n", Fore.WHITE)
+
     time.sleep(.2)
+
     driver.switch_to.window(driver.window_handles[1])
+
     code_input = WebDriverWait(driver, 60).until(
         EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[type = "text"]')))
     for i in code:

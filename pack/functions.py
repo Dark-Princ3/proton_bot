@@ -26,7 +26,7 @@ def random_user():
 
 def random_pwd():
     l = string.ascii_letters+string.digits
-    return str(random.randint(0, 9))+"hope"+str(random.randint(0, 9))
+    return str(random.randint(0, 9))+"KSI"+str(random.randint(0, 9))
 
 def new_tab(driver, url):
     driver.execute_script('''window.open("{}", "_blank");'''.format(url))

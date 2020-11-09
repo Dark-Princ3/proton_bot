@@ -44,17 +44,21 @@ def create_account(driver, email, x_i, y_i):
         for i in randuser:
             username.send_keys(i)
             time.sleep(.1)
+
         driver.switch_to.default_content()
+
         print(Fore.CYAN+"Please wait\n\n", Fore.WHITE)
+
         password = WebDriverWait(driver, 60).until(
             EC.element_to_be_clickable((By.ID, 'password')))
+
         for i in randpwd:
             password.send_keys(i)
             time.sleep(.1)
-        time.sleep(1)
+        time.sleep(.5)
+
         print(Fore.CYAN+"Please wait\n\n", Fore.WHITE)
         input_value(driver, '//*[@id = "passwordc"]', randpwd)
-
 
         driver.switch_to.frame(driver.find_element_by_class_name("bottom"))
         human_move(driver, '//*[@id = "app"]/div/footer/button', x_i, y_i)
