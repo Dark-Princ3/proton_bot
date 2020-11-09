@@ -27,7 +27,7 @@ def main():
         print('Chrome isn\'t installed')
     
     if not is_chrome_there:
-        print('Error - Setup installation failed \nReason - Please install either Chrome or Firefox browser to complete setup process')
+        print('Error - Setup installation failed \nReason - Please install either Chrome browser to complete setup process')
         exit()
 
     print('Setup Completed')
