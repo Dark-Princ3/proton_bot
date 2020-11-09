@@ -2,6 +2,7 @@
 ---
 
 # Currently Broken
+I have exams till 17 nov
 
 
 BTC :`14JNjiNoiKcbCHcxcqUxgJcVgyDfhGbxQF` 
