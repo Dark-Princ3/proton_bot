@@ -37,7 +37,7 @@ clear()
 options = Options()
 options.headless = True
 options.add_argument('--log-level=3')
-driver = webdriver.Chrome(options = options, executable_path = driver_path)
+driver = webdriver.Chrome(executable_path = driver_path, options = options)
 print("- . -.-. .... - .- -. .. -.-.")
 
 
