@@ -11,6 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 init(convert = True)
 
 def verification(driver, randuser, randpwd):
+    print(driver.execute_script('return navigator.webdriver'))
     x_i, y_i = calculate_move()
     
     print(Fore.CYAN+"Verifying Account.......\n\n", Fore.WHITE)
