@@ -5,3 +5,4 @@ pack/__pycache__/temp_gen.cpython-38.pyc
 Drivers/chromedriver.exe
 pack/__pycache__/vers.cpython-38.pyc
 chromedriver.exe
+setup.py
