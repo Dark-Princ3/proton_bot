@@ -16,7 +16,7 @@ def verification(driver, randuser, randpwd):
     print(Fore.CYAN+"Verifying Account.......\n\n", Fore.WHITE)
 
     driver.switch_to.window(driver.window_handles[0])
-    time.sleep(5)
+    time.sleep(1)
     '''- . -.-. .... - .- -. .. -.-.'''
     print(Fore.CYAN+"Waiting for verification E-mail\n\n", Fore.WHITE)
     
@@ -24,15 +24,15 @@ def verification(driver, randuser, randpwd):
 
     while wait_email == True:
         try:
-            WebDriverWait(driver, 30).until(EC.visibility_of_element_located(
-                (By.XPATH, '//*[@id = "app"]/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[2]/div/div[1]/ul/li')))
+            WebDriverWait(driver,10).until(EC.visibility_of_element_located(
+                (By.XPATH, '//*[@id="__layout"]/div/div/main/section[1]/div/div/div[1]/div/table/tbody/tr/td[1]/a')))
             wait_email = False
         except:    
             driver.refresh()
 
-    find_xpath(driver, '//*[@id = "app"]/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[2]/div/div[1]/ul/li').click()
+    find_xpath(driver, '//*[@id="__layout"]/div/div/main/section[1]/div/div/div[1]/div/table/tbody/tr/td[1]/a').click()
     
-    switch_frame(driver, '//*[@id = "idIframe"]')
+    switch_frame(driver, '//*[@id="the_message_iframe"]')
 
     code = driver.find_element_by_tag_name("code").text
 
@@ -49,9 +49,9 @@ def verification(driver, randuser, randpwd):
         time.sleep(.1)
 
     human_move(driver, '//*[@id = "verification-panel"]/p[3]/button', x_i, y_i)
-    time.sleep(3.2)
-    find_xpath(driver, '//*[@id = "confirmModalBtn"]').click()
-    time.sleep(1.2)
+    time.sleep(1)
+    human_move(driver, '//*[@id = "confirmModalBtn"]')
+    time.sleep(1)
     
     print(Fore.GREEN+"\nYour account details.\n", Fore.WHITE)
     try:

@@ -16,15 +16,12 @@ driver_path = "default"
 
 os_name = platform.system()
 if os_name == "Linux":
-    #driver_path = 'Drivers/chromedriver'
     clear_cmd = 'clear'
 
 if os_name == "Windows":
-    #driver_path = 'Drivers/chromedriver.exe'
     clear_cmd = 'cls'
     
 if os_name == "Darwin":
-    #driver_path = 'Drivers/chromedriver'
     clear_cmd = 'clear'
     
 
@@ -37,7 +34,6 @@ options = uc.ChromeOptions()
 options.headless = True
 options.add_argument('--log-level=3')
 driver = uc.Chrome(options = options)
-#driver = webdriver.Chrome(executable_path = driver_path, options = options)
 print("- . -.-. .... - .- -. .. -.-.")
 
 
