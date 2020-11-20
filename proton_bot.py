@@ -1,9 +1,8 @@
 import os
 import platform
 
+import undetected_chromedriver as uc
 from colorama import init
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 from pack.create_acc import create_account
 from pack.functions import calculate_move
@@ -17,15 +16,15 @@ driver_path = "default"
 
 os_name = platform.system()
 if os_name == "Linux":
-    driver_path = 'Drivers/chromedriver'
+    #driver_path = 'Drivers/chromedriver'
     clear_cmd = 'clear'
 
 if os_name == "Windows":
-    driver_path = 'Drivers/chromedriver.exe'
+    #driver_path = 'Drivers/chromedriver.exe'
     clear_cmd = 'cls'
     
 if os_name == "Darwin":
-    driver_path = 'Drivers/chromedriver'
+    #driver_path = 'Drivers/chromedriver'
     clear_cmd = 'clear'
     
 
@@ -34,10 +33,11 @@ def clear():
 
 clear()
 
-options = Options()
+options = uc.ChromeOptions()
 options.headless = True
 options.add_argument('--log-level=3')
-driver = webdriver.Chrome(executable_path = driver_path, options = options)
+driver = uc.Chrome(options = options)
+#driver = webdriver.Chrome(executable_path = driver_path, options = options)
 print("- . -.-. .... - .- -. .. -.-.")
 
 

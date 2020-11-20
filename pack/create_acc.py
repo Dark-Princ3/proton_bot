@@ -20,9 +20,9 @@ def create_account(driver, email, x_i, y_i):
     print('\n\n\n')
     
     try:
-        new_tab(driver, "https://protonmail.com/signup")
-        driver.execute_script('return navigator.webdriver')
+        new_tab(driver)
         driver.switch_to.window(driver.window_handles[1])
+        driver.get("https://protonmail.com/signup")
         time.sleep(.5)
         human_move(driver, '//*[@id = "signup-plans"]/div[5]/div[1]/div[1]/div', x_i, y_i)
         human_move(driver, '//*[@id = "freePlan"]', x_i, y_i)
@@ -38,6 +38,7 @@ def create_account(driver, email, x_i, y_i):
         driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
         WebDriverWait(driver, 60).until(EC.presence_of_element_located(
             (By.ID, 'username'))).click
+        time.sleep(.5)
         username = WebDriverWait(driver, 60).until(EC.presence_of_element_located(
             (By.ID, 'username')))
         randuser = random_user()
@@ -59,7 +60,7 @@ def create_account(driver, email, x_i, y_i):
 
         print(Fore.CYAN+"Please wait\n\n", Fore.WHITE)
         input_value(driver, '//*[@id = "passwordc"]', randpwd)
-
+        time.sleep(.5)
         driver.switch_to.frame(driver.find_element_by_class_name("bottom"))
         human_move(driver, '//*[@id = "app"]/div/footer/button', x_i, y_i)
         driver.switch_to.default_content()
@@ -79,18 +80,27 @@ def create_account(driver, email, x_i, y_i):
                 driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
                 while username.get_attribute('value') != '':
                     username.send_keys(Keys.BACKSPACE)
+
                 randuser = random_user() 
+
                 for i in randuser:
                     username.send_keys(i)
                     time.sleep(.1)
+
                 driver.switch_to.default_content()
+                time.sleep(.5)
                 driver.switch_to.frame(driver.find_element_by_class_name("bottom"))
+                
                 human_move(driver, '//*[@id = "app"]/div/footer/button', x_i, y_i)
+
                 driver.switch_to.default_content()
+
                 print(Fore.LIGHTGREEN_EX+"Maybe solved", Fore.WHITE)
                 check_error = True
                 time.sleep(.3)
+
         human_move(driver, '//*[@id = "confirmModalBtn"]', x_i, y_i)
+        time.sleep(.5)
 
         while True:
             try:
@@ -102,6 +112,7 @@ def create_account(driver, email, x_i, y_i):
                 os.system(exit)
 
         input_value(driver, '//*[@id = "emailVerification"]', email)
+        time.sleep(.5)
         human_move(driver, '//*[@id = "verification-panel"]/form[1]/div[1]/div[2]/button', x_i, y_i)
         
     except BaseException as E:

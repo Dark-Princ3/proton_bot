@@ -28,8 +28,8 @@ def random_pwd():
     l = string.ascii_letters+string.digits
     return str(random.randint(0, 9))+"KSI"+str(random.randint(0, 9))
 
-def new_tab(driver, url):
-    driver.execute_script('''window.open("{}", "_blank");'''.format(url))
+def new_tab(driver):
+    driver.execute_script("window.open('','_blank');")
     
 def switch_frame(driver, xpath):
     WebDriverWait(driver, 60).until(EC.frame_to_be_available_and_switch_to_it(
