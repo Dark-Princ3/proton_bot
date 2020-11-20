@@ -6,8 +6,8 @@
 BTC :`14JNjiNoiKcbCHcxcqUxgJcVgyDfhGbxQF` 
 
 ## Instructions
--First run setup.py
--Then run proton_bot.py
+1. First run setup.py
+2. Then run proton_bot.py
 
 
 **Requirements**
