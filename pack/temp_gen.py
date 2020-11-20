@@ -24,5 +24,4 @@ def temp_mail(driver):
 
     print(Fore.CYAN+"Please wait\n\n", Fore.WHITE)
     email = find_xpath(driver,'//*[@id="__layout"]/div/div/main/div/div[2]/div/div[1]/div/p/span[1]/a/button').text
-    print(email)
     return email

@@ -11,7 +11,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 init(convert = True)
 
 def verification(driver, randuser, randpwd):
-    print(driver.execute_script('return navigator.webdriver'))
     x_i, y_i = calculate_move()
     
     print(Fore.CYAN+"Verifying Account.......\n\n", Fore.WHITE)
@@ -51,7 +50,7 @@ def verification(driver, randuser, randpwd):
 
     human_move(driver, '//*[@id = "verification-panel"]/p[3]/button', x_i, y_i)
     time.sleep(1)
-    human_move(driver, '//*[@id = "confirmModalBtn"]')
+    human_move(driver, '//*[@id = "confirmModalBtn"]',x_i,y_i)
     time.sleep(1)
     
     print(Fore.GREEN+"\nYour account details.\n", Fore.WHITE)

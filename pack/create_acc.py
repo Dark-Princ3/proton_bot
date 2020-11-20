@@ -22,11 +22,7 @@ def create_account(driver, email, x_i, y_i):
     try:
         new_tab(driver)
         driver.switch_to.window(driver.window_handles[1])
-        driver.get("https://protonmail.com/signup")
-        time.sleep(.5)
-        human_move(driver, '//*[@id = "signup-plans"]/div[5]/div[1]/div[1]/div', x_i, y_i)
-        human_move(driver, '//*[@id = "freePlan"]', x_i, y_i)
-        
+        driver.get("https://mail.protonmail.com/create/new?language=en")
         
         randpwd = random_pwd()
         time.sleep(.5)
