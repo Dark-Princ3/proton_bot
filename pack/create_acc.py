@@ -25,7 +25,7 @@ def create_account(driver, email, x_i, y_i):
         driver.get("https://mail.protonmail.com/create/new?language=en")
         
         randpwd = random_pwd()
-        time.sleep(.5)
+        time.sleep(1)
 
         WebDriverWait(driver, 60).until(EC.visibility_of_element_located(
             (By.TAG_NAME, 'iframe')))
@@ -96,37 +96,26 @@ def create_account(driver, email, x_i, y_i):
                 time.sleep(.3)
 
         human_move(driver, '//*[@id = "confirmModalBtn"]', x_i, y_i)
-        time.sleep(.5)
-
-        while True:
-            try:
-                human_move(driver, '//*[@id = "verification-panel"]/div[2]', x_i, y_i)
-                break
-            except:
-                print(Fore.RED+"Looks like YOU have abused the bot!! Try Again later", Fore.WHITE)
-                input("Press enter/return key to exit.")
-                os.system(exit)
-
-        input_value(driver, '//*[@id = "emailVerification"]', email)
-        time.sleep(.5)
-        human_move(driver, '//*[@id = "verification-panel"]/form[1]/div[1]/div[2]/button', x_i, y_i)
-        
-    except BaseException as E:
-        print(E)
-        print(Fore.RED+"\nBroken\n")
-        print("\n\nLooks like something broke, don't worry. I will handle it.\n\n", Fore.WHITE)
-
-    except:
-        print(Fore.RED+"\n\nLooks like something broke, Worry!!\n\n", Fore.WHITE)
-        print("\n\n3\n\n")
-        time.sleep(1)
-        print("\n\n2\n\n")
-        time.sleep(1)
-        print("\n\n1\n\n")
         time.sleep(1)
 
         try:
+            human_move(driver, '//*[@id="verification-panel"]/div[3]/label/div', x_i, y_i)
+            human_move(driver, '//*[@id="verification-panel"]/div[2]/label/div', x_i, y_i)
+        except:
+            print(Fore.RED+"Looks like YOU have abused the bot!! Try Again later", Fore.WHITE)
+            input("Press enter/return key to exit.")
+            driver.close()
+            driver.close()
+            os._exit(1)
+
+        human_move(driver, '//*[@id="emailVerification"]',x_i,y_i)
+        input_value(driver, '//*[@id ="emailVerification"]', email)
+        time.sleep(.5)
+        human_move(driver, '//*[@id="verification-panel"]/form[1]/div[1]/div[2]/button', x_i, y_i)
+
+    except:
+        try:
             driver.close()
         except:
-            print()
+            pass
     return randuser, randpwd

@@ -42,16 +42,24 @@ def verification(driver, randuser, randpwd):
 
     driver.switch_to.window(driver.window_handles[1])
 
+    human_move(driver, '//*[@id="codeValue"]',x_i, y_i)
     code_input = WebDriverWait(driver, 60).until(
         EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[type = "text"]')))
     for i in code:
         code_input.send_keys(i)
         time.sleep(.1)
 
-    human_move(driver, '//*[@id = "verification-panel"]/p[3]/button', x_i, y_i)
+    human_move(driver, '//*[@id="verification-panel"]/p[3]/button', x_i, y_i) # Complete setup btn
     time.sleep(1)
-    human_move(driver, '//*[@id = "confirmModalBtn"]',x_i,y_i)
-    time.sleep(1)
+
+    while True:
+        try:
+            human_move(driver, '//*[@id="confirmModalBtn"]',x_i,y_i)
+            break
+        except:
+            human_move(driver, '//*[@id="secured-inbox"]/div[1]/div[1]/button',x_i,y_i)
+    
+    time.sleep(.5)
     
     print(Fore.GREEN+"\nYour account details.\n", Fore.WHITE)
     try:

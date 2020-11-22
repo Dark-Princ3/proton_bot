@@ -32,6 +32,8 @@ clear()
 
 options = uc.ChromeOptions()
 options.headless = True
+options.add_argument("--ignore-certificate-error")
+options.add_argument("--ignore-ssl-errors")
 options.add_argument('--log-level=3')
 driver = uc.Chrome(options = options)
 print("- . -.-. .... - .- -. .. -.-.")
