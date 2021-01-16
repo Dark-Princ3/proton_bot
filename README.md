@@ -1,3 +1,6 @@
+[![Support Server](https://img.shields.io/discord/591914197219016707.svg?color=7289da&label=Dev+Line&logo=discord&style=forthebadge)](https://discord.gg/wFsfhJh4Rh)
+
+
 
 BTC :`14JNjiNoiKcbCHcxcqUxgJcVgyDfhGbxQF` 
 
