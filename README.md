@@ -15,7 +15,7 @@ If you're repeatedly getting "Looks like YOU have abused the bot!!" error, you c
 1. Google Chrome
 
 ## Contributors
-[Dark-Princ3](https://github.com/Dark-Princ3)
+#### [Dark-Princ3](https://github.com/Dark-Princ3)
 
 
 If not working dm TECHTANIC#8090
