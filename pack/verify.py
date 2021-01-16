@@ -1,5 +1,6 @@
 import os
 import time
+import sys 
 
 from colorama import init
 from colorama import Fore
@@ -24,9 +25,10 @@ def verification(driver, randuser, randpwd):
     wait_email = True
 
     refreshes = 0
-    html = driver.find_element_by_tag_name('html')
-    html.send_keys(Keys.PAGE_DOWN)
     while wait_email == True:
+        time.sleep(0.7)
+        html = driver.find_element_by_tag_name('html')
+        html.send_keys(Keys.PAGE_DOWN)
         if refreshes < 5:
             try:
                 WebDriverWait(driver,10).until(EC.visibility_of_element_located(
@@ -37,7 +39,9 @@ def verification(driver, randuser, randpwd):
                 refreshes += 1
         else:
             print("Oops! Looks like verification failed. Please retry!\n")
-            os.system("exit")
+            driver.close()
+            driver.close()
+            sys.exit()
 
 
     find_xpath(driver, '//*[@id="__layout"]/div/div/div[2]/div/div[1]/div/div/div[1]/div[2]/table/tbody/tr/td[1]/a').click()
@@ -73,8 +77,8 @@ def verification(driver, randuser, randpwd):
     
     print(Fore.GREEN+"\nYour account details.\n", Fore.WHITE)
     try:
-        username = "Username:\t", randuser, "\n"
-        password = "Password:\t", randpwd, "\n\n"
+        username = str("Username:\t {} \n".format(randuser))
+        password = str("Password:\t {} \n\n".format(randpwd))
         with open("myAccs.txt", 'a+') as f:
             f.write("{}\n".format(datetime.now().strftime("%Y %m %d %H:%M:%S")))
             f.write(username)
@@ -88,5 +92,6 @@ def verification(driver, randuser, randpwd):
 
     ''''- . -.-. .... - .- -. .. -.-.'''
     print(Fore.WHITE+"")
-    driver.close()  
+    driver.close()
+    driver.close()
     os.system("exit")
